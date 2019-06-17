@@ -1,10 +1,11 @@
-//package _1_2;
+package _1_2;
 
 /*
 ID: ethanby1
 LANG: JAVA
 TASK: ride
 */
+
 import java.util.*;
 import java.io.*;
 
