@@ -10,22 +10,18 @@ public class template {
 	
 	static Scanner in;
 	static PrintWriter out;
-	static String inFile = "xxx.in";
-	static String outFile = "xxx.out";
-	
-	static String result = "";
+
 	static String[] list;
 	
 	public static void main(String [] args) {
 		
 		try {
-			in = new Scanner(new File(inFile));
-			out = new PrintWriter(new File(outFile));
+			in = new Scanner(new File("file.in"));
+			out = new PrintWriter(new File("file.out"));
 			
 			init();
-			result = solve();
 			
-			out.println(result);
+			out.print(solve());
 			
 			out.close();
 			in.close();
@@ -44,6 +40,7 @@ public class template {
 	
 	private static String solve() {
 		//Process and Output
+		String result = "";
 		
 		
 		return result;
