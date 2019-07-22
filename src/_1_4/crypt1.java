@@ -51,7 +51,7 @@ public class crypt1 {
 		int count = 0;
 		for(int i = 100; i <= 999; i++) {
 			for(int j = 10; j <= 99; j++) {
-				if(isValid(i, list) && isValid(j, list) && isProd(i, j, list)) {
+				if(isValid(i) && isValid(j) && isProd(i, j)) {
 					count++;
 				}
 			}
@@ -61,10 +61,10 @@ public class crypt1 {
 		return result + "\n";
 	}
 	
-	public static boolean isValid(int x, int[] list) {
+	public static boolean isValid(int x) {
 		while(x > 0) {
 			int dig = x % 10;
-			if(! contains(dig, list)) {
+			if(! contains(dig)) {
 				return false;
 			}
 			x /= 10;
@@ -73,7 +73,7 @@ public class crypt1 {
 		return true;
 	}
 	
-	public static boolean contains(int x, int[] list) {
+	public static boolean contains(int x) {
 		for(int i = 0; i < list.length; i++) {
 			if(list[i] == x) {
 				return true;
@@ -83,13 +83,13 @@ public class crypt1 {
 		return false;
 	}
 	
-	public static boolean isProd(int a, int b, int[] digs) {
+	public static boolean isProd(int a, int b) {
 		int bF = Integer.parseInt(Integer.toString(b).substring(0,1));
 		int fProd = a * (b % 10);
 		int sProd = a * bF;
 		int fin = 10 * sProd + fProd;
 		
-		if(! isValid(fProd, list) || ! isValid(sProd, list) || ! isValid(fin, list)) {
+		if(! isValid(fProd) || ! isValid(sProd) || ! isValid(fin)) {
 			return false;
 		}
 		
