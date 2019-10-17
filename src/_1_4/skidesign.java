@@ -1,4 +1,4 @@
-//package _1_4;
+package _1_4;
 
 /*
 ID: ethanby1
@@ -69,4 +69,3 @@ public class skidesign {
 		return result + "\n";
 	}
 }
-
