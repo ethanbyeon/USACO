@@ -14,10 +14,11 @@ public class cowsignal {
 	static Scanner in;
 	static PrintWriter out;
 
-	static int n;
-	static int len;
-	static int fact;
-	static String[] og;
+	static int r;
+	static int c;
+	static int k;
+	static char[][] grid;
+	static char[][] big;
 	
 	public static void main(String [] args) {
 		
@@ -39,60 +40,32 @@ public class cowsignal {
 	
 	private static void init() {
 		String[] line = (in.nextLine()).split(" ");
-		n = Integer.parseInt(line[0]);
-		len = Integer.parseInt(line[1]);
-		fact = Integer.parseInt(line[2]);
+		r = Integer.parseInt(line[0]);
+		c = Integer.parseInt(line[1]);
+		k = Integer.parseInt(line[2]);
 		
-		og = new String[n];
-		for(int i = 0; i < n; i++) {
-			og[i] = in.nextLine();
-			System.out.println(og[i]);
+		grid = new char[r][];
+		for(int i = 0; i < r; i++) {
+			grid[i] = in.next().toCharArray();
 		}
 	}
 	
 	private static String solve() {
 		String result = "";
-		String[] sig = new String[n * fact];
-		int[] numX = new int[n];
-		int[] numD = new int[n];
 		
-		for(int i = 0; i < n; i++) {
-			for(int j = 0; j < og[i].length(); j++){
-				if(og[i].charAt(j) == 'X') {
-					numX[i]++;
-				}
-				if(og[i].charAt(j) == '.'){
-					numD[i]++;
+		big = new char[r*k][c*k];
+		for(int i = 0; i < r*k; i+=k) {
+			for(int j= 0; j < c*k; j+=k) {
+				for(int a = 0; a < k; a++) {
+					for(int b = 0; b < k; b++) {
+						big[i + a][j + b] = grid[i / k][j / k];
+					}
 				}
 			}
 		}
-
-		for(int i = 0; i < n; i++) {
-			int xIndex = og[i].indexOf("X");
-			int dIndex = og[i].indexOf(".");
-			
-			String addX = "";
-			String addDot = "";
-			String addedX = "";
-			String addedDot = "";
-			for(int j = 0; j < og[i].length(); j++) {
-				if(j == xIndex) {
-					for(int k = 0; k < numX[i]; k++) {
-						addX += "X";
-					}
-					
-				}
-				
-				if(j == dIndex) {
-					for(int l = 0; l < numD[i]; l++) {
-						addDot += ".";
-					}
-					
-				}
-				
-				og[i] = addX + addDot;
-				System.out.println(og[i]);
-			}
+		
+		for(int i = 0; i < r * k; i++) {
+			out.println(new String(big[i]));
 		}
 		
 		return result;
