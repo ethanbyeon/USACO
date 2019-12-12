@@ -50,22 +50,31 @@ public class mixmilk {
 		String result = "";
 		
 		int j = 0;
-		int k = 1;
 		for(int i = 0; i < 100; i++) {
-			int milk = buckets[j] + buckets[j + k];
+			int milk = 0;
 			
-			if(milk <= cap[j + k]) {
-				buckets[j + k] = milk;
-				buckets[j] = 0;
-			}else {
-				buckets[j + k] = cap[j + k];
-				buckets[j] = milk - cap[j + k];
+			if(j < 2) {
+				milk = buckets[j] + buckets[j + 1];
+				if(milk <= cap[j + 1]) {
+					buckets[j + 1] = milk;
+					buckets[j] = 0;
+				}else {
+					buckets[j + 1] = cap[j + 1];
+					buckets[j] = milk - cap[j + 1];
+				}
+			}else if(j == 2){
+				milk = buckets[j] + buckets[j - 2];
+				if(milk <= cap[j - 2]) {
+					buckets[j - 2] = milk;
+					buckets[j] = 0;
+				}else {
+					buckets[j - 2] = cap[j - 2];
+					buckets[j] = milk - cap[j - 2];
+				}
 			}
 			j++;
 			
-			if(j == 1) j = 0;
-				
-			System.out.println(buckets[0] + " " + buckets[1] + " " + buckets[2]);
+			if(j > 2) j = 0;
 		}
 		
 		result = "" + buckets[0] + "\n" + buckets[1] + "\n" + buckets[2];
