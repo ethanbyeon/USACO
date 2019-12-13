@@ -1,8 +1,10 @@
+
 /*
 ID: ethanby1
 LANG: JAVA
 TASK: ride
 */
+
 import java.util.*;
 import java.io.*;
 
@@ -32,14 +34,10 @@ public class template {
 	}
 	
 	private static void init() {
-		//Get Data
-		//Initialize Input Variables
-		
 		
 	}
 	
 	private static String solve() {
-		//Process and Output
 		String result = "";
 		
 		
