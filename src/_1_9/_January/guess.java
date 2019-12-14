@@ -1,4 +1,5 @@
 package _1_9._January;
+
 import java.util.*;
 import java.io.*;
 
@@ -6,11 +7,13 @@ public class guess {
 	
 	static Scanner in;
 	static PrintWriter out;
+	
 	static int N;
 	static ArrayList<String>[] a;
 	static int g;
 	
 	public static void main(String[] args) {
+		
 		try {
 			in = new Scanner(new File("guess.in"));
 			out = new PrintWriter(new File("guess.out"));
@@ -23,7 +26,7 @@ public class guess {
 		}
 	}
 	
-	public static void init() {
+	static void init() {
 		N = in.nextInt();
 		a = new ArrayList[N];
 		
@@ -37,7 +40,7 @@ public class guess {
 		}
 	}
 	
-	public static int solve() {
+	static int solve() {
 		int max = 0;
 		
 		for(int i = 0; i < N - 1; i++) {

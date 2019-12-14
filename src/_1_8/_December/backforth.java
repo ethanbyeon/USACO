@@ -13,9 +13,8 @@ public class backforth {
 	
 	static Scanner in;
 	static PrintWriter out;
-
-	static int[] first;
-	static int[] sec;
+	
+	static int a[], b[], a1[], b1[], n = 10;
 	
 	public static void main(String [] args) {
 		
@@ -35,30 +34,45 @@ public class backforth {
 		}
 	}
 	
-	private static void init() {
-		first = new int[10];
-		sec = new int[10];
+	static void init() {
+		a = new int[n];
+		b = new int[n];
+		a1 = new int[n];
+		b1 = new int[n];
 		
-		String[] fsplit = (in.nextLine()).split(" ");
-		String[] secsplit = (in.nextLine()).split(" ");
+		for(int i = 0; i < n; i++) {
+			a[i] = in.nextInt();
+			a1[i] = a[i];
+		}
 		
-		for(int i = 0; i < 10; i++) {
-			first[i] = Integer.parseInt(fsplit[i]);
-			sec[i] = Integer.parseInt(secsplit[i]);
+		for(int i = 0; i < n; i++) {
+			b[i] = in.nextInt();
+			b1[i] = b[i];
 		}
 	}
 	
-	private static int solve() {
-		int result = 0;
-		int mon = 1000;
+	static int solve() {
+		Set<Integer> set = new HashSet<Integer>();
 		
-		for(int i = 0; i < 10; i++) {
-			for(int j = 0; j < ; j++) {
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				int first = 1000 - a[i] + b[j];
+				int temp = a[i];
 				
+				a[i] = b[j];
+				b[j] = temp;
+				
+				for(int k = 0; k < n; k++) {
+					for(int m = 0; m < n; m++) {
+						int result = first - a[k] + b[m];
+						set.add(result);
+					}
+				}
+				a = a1.clone();
+				b = b1.clone();
 			}
 		}
-		
-		return result;
+		return set.size();
 	}
 }
 

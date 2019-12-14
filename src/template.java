@@ -33,11 +33,11 @@ public class template {
 		}
 	}
 	
-	private static void init() {
+	static void init() {
 		
 	}
 	
-	private static String solve() {
+	static String solve() {
 		String result = "";
 		
 		

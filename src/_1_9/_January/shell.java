@@ -16,8 +16,11 @@ public class shell {
 		try {
 			in = new Scanner(new File("shell.in"));
 			out = new PrintWriter(new File("shell.out"));
+			
 			init();
+			
 			out.print(solve());
+			
 			out.close();
 			in.close();
 		}catch (Exception e) {
@@ -25,7 +28,7 @@ public class shell {
 		}
 	}
 	
-	public static void init() {
+	static void init() {
 		N = in.nextInt();
 		A = new int[N];
 		B = new int[N];

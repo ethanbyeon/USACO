@@ -1,4 +1,5 @@
 package _1_9._January;
+
 import java.util.*;
 import java.io.*;
 
@@ -8,10 +9,13 @@ public class sleepy {
 	static PrintWriter out;
 	
 	public static void main(String[] args) {
+		
 		try {
 			in = new Scanner(new File("sleepy.in"));
 			out = new PrintWriter(new File("sleepy.out"));
+			
 			out.print(solve());
+			
 			out.close();
 			in.close();
 		}catch (Exception e) {
@@ -19,7 +23,7 @@ public class sleepy {
 		}
 	}
 	
-	public static int solve() {
+	static int solve() {
 		int count = 0;
 		
 		int[] c = new int[in.nextInt()];
