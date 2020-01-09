@@ -95,7 +95,7 @@ public class transform {
 		return true;
 	}
 	
-	private static int transform(char[][] o, char[][] t) {
+	private static int transforms(char[][] o, char[][] t) {
 		if(compareSquare(rotate(o),t)) return 1;
 		if(compareSquare(rotate(rotate(o)),t)) return 2;
 		if(compareSquare(rotate(rotate(rotate(o))),t)) return 3;
@@ -108,7 +108,7 @@ public class transform {
 	
 	private static String solve() {
 		String result = "";
-		result = "" + transform(og,tran);
+		result = "" + transforms(og,tran);
 		return result;
 	}
 	
