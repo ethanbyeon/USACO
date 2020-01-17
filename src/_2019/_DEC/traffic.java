@@ -73,9 +73,6 @@ public class traffic {
 	
 	private static String solve() {
 		String result = "";
-		String prior = "";
-		String after = "";
-		
 		
 		return result;
 	}
